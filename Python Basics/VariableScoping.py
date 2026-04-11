@@ -1,7 +1,5 @@
 # To know about the variable scoping with use of the functions
 # Local -> Enclosing -> Global -> Builtin
-from dis import disco
-
 
 # Local :
 def order() :
