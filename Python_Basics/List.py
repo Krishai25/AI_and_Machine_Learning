@@ -70,3 +70,29 @@ Enter the itemDone
 [' Noodle', 'soap', 'brush', 'buiscuit', 'perfume']
 
 """
+
+
+sample=[]
+n = 6
+for i in range(n):
+    number=int(input())
+    sample.append(number)
+
+print(sample)
+
+sample=[]
+n=6
+while n != 0:
+    number=int(input())
+    sample.append(number)
+    n=n-1
+
+print(sample)
+even=0
+odd=0
+for i,number in enumerate(sample):
+    if i%2 == 0 :
+        even+=number
+    else :
+        odd+=number
+print(abs(even-odd))
