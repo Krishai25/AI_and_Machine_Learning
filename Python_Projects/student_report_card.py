@@ -47,6 +47,31 @@ class Student:
         print("Grade:",grade)
         print("#########----------END REPORT CARD----------###########")
 
+    def report_card_file_addition(self, file=None):
+        grade = self.average_marks()
+        total = self.total_marks()
+        subjects = ["AI", "Web Mining", "Computer Networks",
+                    "Operating Systems", "Machine Learning"]
+
+        lines = [
+            "#########----------REPORT CARD----------###########",
+            f"Student ID  : {self.stud_id}",
+            f"Name        : {self.name}",
+            f"Classname   : {self.classname}",
+        ]
+        for subject, marks in zip(subjects, self.marks):
+            lines.append(f"  {subject} : {marks}")
+
+        lines.append(f"Total Marks : {total}/500")
+        lines.append(f"Percentage  : {self.percentage_calculation(total):.2f}%")
+        lines.append(f"Grade       : {grade}")
+        lines.append("#########----------END REPORT CARD----------###########")
+        lines.append("")  # empty line between students
+
+        for line in lines:
+            if file:
+                file.write(line + "\n")  # also writes to file
+
 
 if __name__ == "__main__":
    number_of_students=int(input("Enter the number of students : "))
