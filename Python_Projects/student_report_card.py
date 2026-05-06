@@ -29,15 +29,21 @@ class Student:
         elif average <= 40:
             return "Fail"
 
+    def percentage_calculation(self,total):
+        return (total/500)*100
+
     def report_card(self):
         grade=self.average_marks()
         total = self.total_marks()
+        subjects=["AI","Web Mining","Computer Neworks","Operating Systems","Machine Learning"]
         print("#########----------REPORT CARD----------###########")
         print("Student ID:",self.stud_id)
         print("Name:",self.name)
         print("Classname:",self.classname)
-        print("Marks:",self.marks)
-        print("Total Marks:",total)
+        for subject,marks in zip(subjects,self.marks):
+             print(f"{subject} : {marks}")
+        print(f"Total Marks: {total}/500")
+        print("Percentage :",self.percentage_calculation(total))
         print("Grade:",grade)
         print("#########----------END REPORT CARD----------###########")
 
@@ -47,7 +53,7 @@ if __name__ == "__main__":
    student_object=[]
    for i in range(number_of_students):
        marks=[]
-       stud_id=int(input("Enter Student ID : "))
+       stud_id=input("Enter Student ID : ")
        name=input("Enter Student Name : ")
        classname=input("Enter Student Class : ")
 
